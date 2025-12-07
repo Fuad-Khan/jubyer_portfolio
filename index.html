@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Abdullah Al Jubyer | Software Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Abdullah Al Jubyer, Software Engineer specializing in full-stack development, backend engineering, and AI-driven solutions."
+    />
+    <style>
+      :root {
+        --bg: #050816;
+        --bg-alt: #0a1020;
+        --accent: #3b82f6;
+        --accent-soft: rgba(59, 130, 246, 0.1);
+        --text: #f9fafb;
+        --muted: #9ca3af;
+        --border: #1f2933;
+        --card: #0b1220;
+        --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.6);
+        --radius-xl: 18px;
+        --radius-full: 999px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, #111827, #020617 60%);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 5rem;
+      }
+
+      /* Navbar */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+        background: linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.85),
+          transparent
+        );
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      }
+
+      .nav-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0.75rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-badge {
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-full);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(
+          circle at 30% 0,
+          #38bdf8,
+          #4f46e5 45%,
+          #020617
+        );
+        box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35),
+          0 12px 30px rgba(15, 23, 42, 0.9);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .logo-text-main {
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        font-size: 0.95rem;
+      }
+
+      .logo-text-sub {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.25rem;
+        font-size: 0.85rem;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 0.1rem;
+        color: var(--muted);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.25rem;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(to right, #3b82f6, #22c55e);
+        transition: width 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+        gap: 3rem;
+        align-items: center;
+        padding-top: 3.5rem;
+      }
+
+      .hero-kicker {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.2rem 0.75rem;
+        border-radius: var(--radius-full);
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+      }
+
+      .hero-kicker-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: #22c55e;
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+      }
+
+      .hero-title {
+        font-size: clamp(2.25rem, 3.6vw, 3rem);
+        line-height: 1.1;
+        margin: 1rem 0 0.75rem;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-title span.highlight {
+        background: linear-gradient(to right, #3b82f6, #22c55e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        color: var(--muted);
+        font-size: 0.98rem;
+        max-width: 34rem;
+      }
+
+      .hero-subtitle strong {
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+
+      .hero-tags {
+        margin-top: 1.1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .badge {
+        font-size: 0.74rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: var(--muted);
+        background: rgba(15, 23, 42, 0.85);
+      }
+
+      .badge-accent {
+        border-color: rgba(59, 130, 246, 0.7);
+        color: #dbeafe;
+        background: radial-gradient(circle at 0 0, #1d4ed8, #020617);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
+      }
+
+      .btn {
+        border-radius: var(--radius-full);
+        padding: 0.6rem 1.45rem;
+        font-size: 0.9rem;
+        border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        cursor: pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s ease,
+          background 0.12s ease, border-color 0.12s ease;
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background: linear-gradient(to right, #3b82f6, #22c55e);
+        color: #0b1120;
+        font-weight: 600;
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.6);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 40px rgba(37, 99, 235, 0.9);
+      }
+
+      .btn-ghost {
+        border-color: rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 0.7);
+        color: var(--muted);
+      }
+
+      .btn-ghost:hover {
+        border-color: rgba(148, 163, 184, 0.9);
+        color: #e5e7eb;
+        transform: translateY(-1px);
+      }
+
+      .btn-icon {
+        font-size: 1rem;
+      }
+
+      .hero-meta {
+        margin-top: 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .hero-meta-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.75);
+      }
+
+      /* Hero right card */
+      .hero-card {
+        border-radius: 28px;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        background: radial-gradient(circle at 0 0, #1d4ed8 0, #020617 45%);
+        padding: 1.5rem 1.4rem;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card-tag {
+        font-size: 0.75rem;
+        color: #e5e7eb;
+        display: inline-flex;
+        gap: 0.4rem;
+        align-items: center;
+        padding: 0.2rem 0.7rem;
+        border-radius: var(--radius-full);
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+      }
+
+      .hero-card-main {
+        margin-top: 1.2rem;
+      }
+
+      .hero-card-title {
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 0.35rem;
+      }
+
+      .hero-card-text {
+        font-size: 0.85rem;
+        color: #d1d5db;
+      }
+
+      .hero-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+
+      .chip {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.65rem;
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        color: #e5e7eb;
+        background: rgba(15, 23, 42, 0.75);
+      }
+
+      .hero-card-footer {
+        margin-top: 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.78rem;
+        color: #cbd5f5;
+      }
+
+      .hero-pill {
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-full);
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(59, 130, 246, 0.7);
+        font-size: 0.75rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .hero-glow {
+        position: absolute;
+        inset: 40% -40% auto;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.4),
+          transparent 65%
+        );
+        opacity: 0.85;
+        pointer-events: none;
+      }
+
+      /* Sections */
+      section {
+        margin-top: 3.5rem;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .section-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .section-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        max-width: 26rem;
+      }
+
+      /* About */
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: 2rem;
+      }
+
+      .about-text {
+        font-size: 0.94rem;
+        color: #e5e7eb;
+      }
+
+      .about-text p + p {
+        margin-top: 0.75rem;
+      }
+
+      .about-facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 0.85rem;
+        font-size: 0.78rem;
+      }
+
+      .fact-card {
+        padding: 0.7rem 0.9rem;
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: rgba(15, 23, 42, 0.85);
+      }
+
+      .fact-label {
+        color: var(--muted);
+        font-size: 0.73rem;
+        margin-bottom: 0.1rem;
+      }
+
+      .fact-value {
+        font-weight: 500;
+        font-size: 0.85rem;
+      }
+
+      /* Skills */
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      /* Grid cards */
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.3rem;
+      }
+
+      .card {
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        background: linear-gradient(
+          145deg,
+          rgba(15, 23, 42, 0.95),
+          rgba(15, 23, 42, 0.96)
+        );
+        padding: 1rem 1rem;
+        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+        font-size: 0.88rem;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.75rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .card-title {
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .card-tag {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.6rem;
+        border-radius: var(--radius-full);
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .card-meta {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 0.45rem;
+      }
+
+      .card-body {
+        font-size: 0.84rem;
+        color: #e5e7eb;
+      }
+
+      .card-footer {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .tag {
+        font-size: 0.72rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: var(--radius-full);
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px dashed rgba(148, 163, 184, 0.5);
+        color: var(--muted);
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .contact-list {
+        font-size: 0.88rem;
+        color: #e5e7eb;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .contact-label {
+        font-size: 0.78rem;
+        color: var(--muted);
+        width: 80px;
+        flex-shrink: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+
+      .contact-pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        font-size: 0.78rem;
+        margin-top: 1rem;
+      }
+
+      .contact-pill {
+        padding: 0.25rem 0.7rem;
+        border-radius: var(--radius-full);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: var(--muted);
+      }
+
+      .contact-form {
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: radial-gradient(circle at 0 0, #1e40af 0, #020617 60%);
+        padding: 1.3rem 1.3rem 1.4rem;
+        box-shadow: var(--shadow-soft);
+        font-size: 0.84rem;
+      }
+
+      .contact-form h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .contact-form p {
+        font-size: 0.8rem;
+        color: #e5e7eb;
+        margin-bottom: 0.9rem;
+      }
+
+      .field {
+        display: grid;
+        gap: 0.3rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .field label {
+        font-size: 0.75rem;
+        color: #d1d5db;
+      }
+
+      .input,
+      .textarea {
+        background: rgba(15, 23, 42, 0.85);
+        border-radius: 0.8rem;
+        border: 1px solid rgba(148, 163, 184, 0.55);
+        padding: 0.5rem 0.65rem;
+        color: #e5e7eb;
+        font-size: 0.82rem;
+        outline: none;
+        resize: vertical;
+        min-height: 38px;
+      }
+
+      .input:focus,
+      .textarea:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.65);
+      }
+
+      .footer {
+        margin-top: 3rem;
+        font-size: 0.75rem;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.3);
+        padding-top: 1.2rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        font-size: 0.76rem;
+        color: var(--muted);
+      }
+
+      .footer-links a:hover {
+        color: #e5e7eb;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero {
+          padding-top: 2.5rem;
+        }
+
+        .hero-card {
+          order: 1;
+        }
+
+        .hero-left {
+          order: 2;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .nav-cta {
+          display: inline-flex;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding-inline: 1rem;
+        }
+
+        .hero-title {
+          font-size: 2.05rem;
+        }
+
+        .hero-card {
+          padding: 1.2rem 1.05rem;
+        }
+      }
+
+      .hero-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(59, 130, 246, 0.9); /* blue border */
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="nav-inner">
+        <a href="#top" class="logo">
+          <div class="logo-badge">AJ</div>
+          <div>
+            <div class="logo-text-main">Abdullah Al Jubyer</div>
+            <div class="logo-text-sub">Software Engineer · Dhaka, BD</div>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#contact" class="btn btn-primary nav-cta">
+          <span class="btn-icon">✉️</span>
+          <span>Hire Me</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-left">
+            <img
+              src="7d1159de-c5fc-4361-8b37-1881c3335f44.jpg"
+              alt="Portrait of Abdullah Al Jubyer"
+              class="hero-avatar"
+            />
+
+            <div class="hero-kicker">
+              <span class="hero-kicker-dot"></span>
+              AVAILABLE FOR OPPORTUNITIES
+            </div>
+
+            <h1 class="hero-title">
+              Building
+              <span class="highlight">scalable, impactful</span>
+              software experiences.
+            </h1>
+
+            <p class="hero-subtitle">
+              I’m <strong>Abdullah Al Jubyer</strong>, a Software Engineer with
+              hands-on experience in full-stack development, backend
+              engineering, and AI-driven solutions. I love solving real problems
+              with clean, maintainable code and thoughtful system design.
+            </p>
+
+            <div class="hero-tags">
+              <span class="badge badge-accent">Full-Stack & Backend</span>
+              <span class="badge">AI & Data</span>
+              <span class="badge">Clean Code Enthusiast</span>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <span class="btn-icon">🚀</span>
+                <span>View My Projects</span>
+              </a>
+              <a href="#contact" class="btn btn-ghost">
+                <span class="btn-icon">🤝</span>
+                <span>Let’s Work Together</span>
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span>
+                <span class="hero-meta-dot"></span>
+                Based in Dhaka, Bangladesh
+              </span>
+              <span>
+                <span class="hero-meta-dot"></span>
+                Open to remote roles
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero right card -->
+          <aside class="hero-card" aria-label="Profile summary">
+            <div class="hero-glow"></div>
+
+            <div class="hero-card-tag">
+              <span>📊 Profile Snapshot</span>
+            </div>
+
+            <div class="hero-card-main">
+              <div class="hero-card-title">What I bring to a team</div>
+              <p class="hero-card-text">
+                Strong problem-solving skills, experience shipping real web
+                apps, and a mindset focused on collaboration, reliability, and
+                continuous learning.
+              </p>
+
+              <div class="hero-chip-row">
+                <span class="chip">Full-Stack Web Apps</span>
+                <span class="chip">RESTful APIs</span>
+                <span class="chip">Relational & NoSQL DBs</span>
+                <span class="chip">AI & ML Basics</span>
+                <span class="chip">Clean Code Practices</span>
+              </div>
+            </div>
+
+            <div class="hero-card-footer">
+              <div>
+                <div style="font-size: 0.75rem; color: #a5b4fc">
+                  Current Focus
+                </div>
+                <div>Scalable backend & AI-driven products</div>
+              </div>
+              <div class="hero-pill">
+                <span>📈 Growth-oriented</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">ABOUT</div>
+              <h2 class="section-title">My journey into software</h2>
+            </div>
+            <p class="section-sub">
+              From Jhenaidah to Dhaka, my path has been about curiosity,
+              building small projects, and turning ideas into real applications
+              that people can use.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                Born and raised in Jhenaidah, I’ve always been fascinated by how
+                code can solve real-world problems and create meaningful digital
+                experiences. That passion led me to pursue a B.Sc. in Software
+                Engineering at
+                <strong>Daffodil International University</strong>, where I’ve
+                been able to combine theory with practical, hands-on development
+                work.
+              </p>
+              <p>
+                Alongside my studies, I’ve worked on freelance and part-time
+                projects, collaborating with clients, managing my own tasks, and
+                delivering production-ready features. I’m especially drawn to
+                <strong>backend engineering</strong>, system design, and
+                integrating <strong>AI-driven solutions</strong> into real
+                products.
+              </p>
+              <p>
+                Outside of coding, I enjoy exploring new tools, reading tech
+                blogs, and constantly improving both my technical and soft
+                skills.
+              </p>
+            </div>
+
+            <div class="about-facts">
+              <div class="fact-card">
+                <div class="fact-label">Location</div>
+                <div class="fact-value">Dhaka, Bangladesh</div>
+              </div>
+              <div class="fact-card">
+                <div class="fact-label">Role</div>
+                <div class="fact-value">Software Engineer</div>
+              </div>
+              <div class="fact-card">
+                <div class="fact-label">Languages</div>
+                <div class="fact-value">English · Bangla · Hindi</div>
+              </div>
+              <div class="fact-card">
+                <div class="fact-label">Interests</div>
+                <div class="fact-value">Coding · Robotics · Travel</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">SKILLS</div>
+              <h2 class="section-title">Tech stack & strengths</h2>
+            </div>
+            <p class="section-sub">
+              A mix of backend, frontend, databases, and AI-related skills that
+              help me build end-to-end solutions — from APIs to user interfaces.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Programming Languages</h3>
+              </div>
+              <p class="card-body">
+                Comfortable working across multiple languages and picking the
+                right tool for the job.
+              </p>
+              <div class="card-footer pill-row">
+                <span class="tag">Python</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Java</span>
+                <span class="tag">C / C++</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Web Technologies</h3>
+              </div>
+              <p class="card-body">
+                Experience building responsive UIs and modern frontends paired
+                with robust backend services.
+              </p>
+              <div class="card-footer pill-row">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">React.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">Next.js</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Backend, Data & Tools</h3>
+              </div>
+              <p class="card-body">
+                Focused on clean APIs, reliable data layers, and modern
+                development workflows.
+              </p>
+              <div class="card-footer pill-row">
+                <span class="tag">REST APIs</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Django / Flask</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Git & GitHub</span>
+                <span class="tag">TensorFlow / PyTorch (basics)</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem">
+            <div class="section-kicker" style="margin-bottom: 0.4rem">
+              SOFT SKILLS
+            </div>
+            <div class="pill-row">
+              <span class="badge">Problem-Solving</span>
+              <span class="badge">Critical Thinking</span>
+              <span class="badge">Team Collaboration</span>
+              <span class="badge">Communication</span>
+              <span class="badge">Adaptability</span>
+              <span class="badge">Time Management</span>
+              <span class="badge">Self-Learning & Growth</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">PROJECTS</div>
+              <h2 class="section-title">Selected work</h2>
+            </div>
+            <p class="section-sub">
+              A few of the projects that reflect how I think about usability,
+              reliability, and real-world use cases.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Class Voting System</h3>
+                <span class="card-tag">Web App</span>
+              </div>
+              <p class="card-meta">Secure, transparent classroom voting</p>
+              <p class="card-body">
+                A web-based platform that allows students to securely cast
+                votes, view real-time results, and maintain transparency with
+                role-based access and data validation.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Role-based Access</span>
+                <span class="tag">Data Validation</span>
+                <span class="tag">Real-time Results</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Ticket Booking System</h3>
+                <span class="card-tag">Web Platform</span>
+              </div>
+              <p class="card-meta">Search · Availability · Reservations</p>
+              <p class="card-body">
+                An online solution for booking events or trips where users can
+                search schedules, check seat availability, reserve tickets, and
+                receive confirmations through a clean, intuitive interface.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Search & Filters</span>
+                <span class="tag">Seat Management</span>
+                <span class="tag">Booking Confirmation</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Online Super Shop</h3>
+                <span class="card-tag">E-Commerce</span>
+              </div>
+              <p class="card-meta">End-to-end shopping experience</p>
+              <p class="card-body">
+                A full-featured e-commerce platform where customers can browse
+                products, manage carts, place orders, and make secure payments,
+                with an admin dashboard for inventory and order tracking.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Product Catalog</span>
+                <span class="tag">Cart & Checkout</span>
+                <span class="tag">Admin Dashboard</span>
+                <span class="tag">Secure Payments</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">EXPERIENCE</div>
+              <h2 class="section-title">Where I’ve contributed</h2>
+            </div>
+            <p class="section-sub">
+              Remote work, real clients, and a strong habit of delivering
+              maintainable solutions while communicating clearly.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Remote Software Developer</h3>
+                <span class="card-tag">Freelance / Part-Time</span>
+              </div>
+              <p class="card-meta">Remote · Web & Software Projects</p>
+              <p class="card-body">
+                Collaborated with clients to build and maintain web
+                applications, write clean and reusable code, and manage tasks
+                independently while meeting deadlines.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Client Collaboration</span>
+                <span class="tag">Clean Code</span>
+                <span class="tag">Deadline-Driven</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Software Engineering Club</h3>
+                <span class="card-tag">Member</span>
+              </div>
+              <p class="card-meta">Daffodil International University</p>
+              <p class="card-body">
+                Engaged with peers, shared knowledge, and stayed up-to-date with
+                the latest technologies and best practices in software
+                development.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Community</span>
+                <span class="tag">Knowledge Sharing</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Awards & Recognition</h3>
+                <span class="card-tag">Highlights</span>
+              </div>
+              <p class="card-meta">Math & Robotics</p>
+              <p class="card-body">
+                <strong>Mathematics Olympiad – 4th Runner Up</strong> for
+                analytical and problem-solving skills, and recognition for
+                building functional robotic models with practical engineering
+                applications.
+              </p>
+              <div class="card-footer">
+                <span class="tag">Problem-Solving</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">Analytical Thinking</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">EDUCATION</div>
+              <h2 class="section-title">Academic background</h2>
+            </div>
+            <p class="section-sub">
+              A solid foundation in software engineering, algorithms, and core
+              computer science concepts, supported by hands-on projects.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">B.Sc. in Software Engineering</h3>
+                <span class="card-tag">2022 – 2026</span>
+              </div>
+              <p class="card-meta">
+                Daffodil International University · Dhaka, Bangladesh
+              </p>
+              <p class="card-body">
+                Studying software engineering fundamentals, algorithms, data
+                structures, databases, and modern software development
+                practices, with a focus on building real-world applications.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Science</h3>
+                <span class="card-tag">2020 – 2022</span>
+              </div>
+              <p class="card-meta">K.C College · Jhenaidah, Bangladesh</p>
+              <p class="card-body">
+                Completed a science stream which built a strong base in
+                mathematics and analytical thinking — skills that support my
+                work in software and problem-solving.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">CONTACT</div>
+              <h2 class="section-title">Let’s build something together</h2>
+            </div>
+            <p class="section-sub">
+              Whether you have a role in mind, a project idea, or just want to
+              connect, feel free to reach out. I’m always happy to talk about
+              software, AI, and tech.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div>
+              <div class="contact-list">
+                <div class="contact-item">
+                  <div class="contact-label">Email</div>
+                  <a href="mailto:jubyerjhe@gmail.com">jubyerjhe@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-label">Phone</div>
+                  <a href="tel:+8801760162216">+880 1760-162216</a>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-label">Location</div>
+                  <span>Dhaka, Bangladesh</span>
+                </div>
+                <div class="contact-item">
+                  <div class="contact-label">Profiles</div>
+                  <div>
+                    <!-- TODO: Add your real profile links -->
+                    <a href="#" target="_blank" rel="noreferrer">GitHub</a> ·
+                    <a href="#" target="_blank" rel="noreferrer">LinkedIn</a> ·
+                    <a href="#" target="_blank" rel="noreferrer">Kaggle</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-pill-row">
+                <span class="contact-pill">Open to internships</span>
+                <span class="contact-pill">Remote & hybrid roles</span>
+                <span class="contact-pill">Freelance projects</span>
+              </div>
+            </div>
+
+            <form
+              class="contact-form"
+              onsubmit="event.preventDefault(); alert('This is a static demo form. You can connect it to a backend or service like Formspree.');"
+            >
+              <h3>Quick message</h3>
+              <p>
+                Drop a short message and I’ll get back to you as soon as I can.
+              </p>
+
+              <div class="field">
+                <label for="name">Name</label>
+                <input
+                  class="input"
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  class="input"
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  class="textarea"
+                  id="message"
+                  rows="4"
+                  placeholder="Tell me briefly what you have in mind..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="margin-top: 0.4rem; width: 100%; justify-content: center"
+              >
+                <span class="btn-icon">📨</span>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <span
+            >© <span id="year"></span> Abdullah Al Jubyer. All rights
+            reserved.</span
+          >
+          <div class="footer-links">
+            <a href="#top">Back to top ↑</a>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
